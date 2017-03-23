@@ -85,7 +85,7 @@ app.post('/', function(req, res) {
     sessionId: '12345',
     events: [
     {
-      user_name: "aaaaaa"
+      name: "aaaaaa"
     }
   ]
   };
