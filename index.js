@@ -46,7 +46,7 @@ app.post("/",function(req,res){
   var keyword = req.query.keyword;
   console.log(keyword);
 
-var request = app2.textRequest('Hello.', {'sessionId': 123456});
+var request = app2.textRequest('Hello.', {'sessionId': "f97ae12b-471d-40ea-9d2f-c4b14aa19fa3"});
 
   request.on('response', function(response) {
     console.log(response);
