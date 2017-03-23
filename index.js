@@ -76,7 +76,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 var apiai = require("apiai");
 var api = apiai("ed66e9aa07fb47e7a9becbea1ccb7ad5");
 
-app.post('/api/users', function(req, res) {
+app.post('/', function(req, res) {
   var user_id = req.param('id');
   var token = req.param('token');
   var geo = req.param('geo');  
