@@ -4,7 +4,7 @@
   "description": "servidor web de chatbot",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "start": "node index.js"
   },
   "author": "todo1",
   "license": "ISC"
