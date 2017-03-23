@@ -82,7 +82,12 @@ app.post('/', function(req, res) {
   var geo = req.param('geo');  
 
   var options = {
-    sessionId: '12345'
+    sessionId: '12345',
+    events: [
+    {
+      user_name: "aaaaaa"
+    }
+  ]
   };
 
   var request = api.textRequest('Hello.', options);
