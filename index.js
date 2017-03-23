@@ -90,7 +90,7 @@ app.post('/', function(req, res) {
   ]
   };
 
-  var request = api.textRequest('Hello.', options);
+  var request = api.textRequest('Chao.', options);
 
   request.on('response', function(response) {
       console.log(response);
