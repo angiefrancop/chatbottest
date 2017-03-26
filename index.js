@@ -90,7 +90,11 @@ app.post('/webhook', function(req, res) {
     "sessionId": '12345'
   };
   console.log(options);
-
+  var  speech = "Chao angela";
+  var respuesta = {
+        "speech": speech,
+        "displayText": speech
+    } 
   var request = api.textRequest('Chao', options);
 
   request.on('response', function(response) {
@@ -102,7 +106,7 @@ app.post('/webhook', function(req, res) {
       console.log(error);
   });
 
-  request.end();
+  request.end(respuesta);
 
   //res.send(user_id + ' ' + token + ' ' + geo);
 });
