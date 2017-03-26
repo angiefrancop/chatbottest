@@ -72,7 +72,7 @@
 
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 3600;
+var port = process.env.PORT || 3000;
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
@@ -87,26 +87,29 @@ app.post('/webhook', function(req, res) {
   // var geo = req.param('geo');  
 
   var options = {
-    "sessionId": '12345'
+    sessionId: '12345'
   };
-  console.log(options);
-  var  speech = "Chao angela";
-  var respuesta = {
-        "speech": speech,
-        "displayText": speech
-    } 
-  var request = api.textRequest('Chao', options);
+
+  var event = {
+    name: "custom_event",
+    data: {
+        name: "sam",
+    }
+  };
+  
+  //var request = api.textRequest('Chao', options);
+  var request = api.eventRequest(event, options);
 
   request.on('response', function(response) {
       console.log(response);
-      res.json(response);
+      //res.json(response);
   });
 
   request.on('error', function(error) {
       console.log(error);
   });
 
-  request.end(respuesta);
+  request.end();
 
   //res.send(user_id + ' ' + token + ' ' + geo);
 });
