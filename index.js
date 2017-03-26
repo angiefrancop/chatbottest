@@ -80,7 +80,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 var apiai = require("apiai");
 var api = apiai("ed66e9aa07fb47e7a9becbea1ccb7ad5");
 
-app.post('/', function(req, res) {
+app.post('/webhook', function(req, res) {
+    console.log(req.param);
   // var user_id = req.param('id');
   // var token = req.param('token');
   // var geo = req.param('geo');  
@@ -90,7 +91,7 @@ app.post('/', function(req, res) {
   };
   console.log(options);
 
-  var request = api.textRequest('Chao.', options);
+  var request = api.textRequest('Chao', options);
 
   request.on('response', function(response) {
       console.log(response);
