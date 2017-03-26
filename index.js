@@ -37,12 +37,6 @@
 // // var apiai = require("../module/apiai");
 // var apiai = require("apiai");
 
-// var options = {
-//     // hostname: 'eap.api.ai',
-// };
-
-// var app = apiai("ed66e9aa07fb47e7a9becbea1ccb7ad5", options);
-
 // var event = {
 //     name: "network.connect",
 //     data: {
@@ -51,8 +45,16 @@
 // };
 
 // var options = {
-//     sessionId: '12345'
+//     sessionId: '12345',
+//     event:event
 // };
+
+
+// var app = apiai("ed66e9aa07fb47e7a9becbea1ccb7ad5", options);
+
+
+
+
 
 // var request = app.eventRequest(event, options);
 
@@ -66,9 +68,11 @@
 
 // request.end();
 
+
+
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 3400;
+var port = process.env.PORT || 3600;
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
@@ -77,18 +81,20 @@ var apiai = require("apiai");
 var api = apiai("ed66e9aa07fb47e7a9becbea1ccb7ad5");
 
 app.post('/', function(req, res) {
-  var user_id = req.param('id');
-  var token = req.param('token');
-  var geo = req.param('geo');  
+  // var user_id = req.param('id');
+  // var token = req.param('token');
+  // var geo = req.param('geo');  
 
   var options = {
-    sessionId: '12345',
-    events: [
-    {
-      user_name: "aaaaaa"
-    }
-  ]
+    "sessionId": '12345',
+    "event":{  
+      "name":"despedir",
+      "data":{
+          "name":"aangela"  
+      }
+   }
   };
+  console.log(options);
 
   var request = api.textRequest('Chao.', options);
 
@@ -111,3 +117,4 @@ app.post('/', function(req, res) {
 // start the server
 app.listen(port);
 console.log('Server started! At http://localhost:' + port);
+
