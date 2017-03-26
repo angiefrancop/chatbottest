@@ -86,13 +86,7 @@ app.post('/', function(req, res) {
   // var geo = req.param('geo');  
 
   var options = {
-    "sessionId": '12345',
-    "event":{  
-      "name":"despedir",
-      "data":{
-          "name":"aangela"  
-      }
-   }
+    "sessionId": '12345'
   };
   console.log(options);
 
